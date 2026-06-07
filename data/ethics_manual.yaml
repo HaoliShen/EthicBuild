@@ -1,0 +1,316 @@
+metadata:
+  name: EthicBuild Value Manual
+  version: "1.0"
+  language: zh-CN
+  description: >
+    面向大模型辅助项目构建场景的机器可读伦理价值手册。该手册将隐私、公平、
+    安全、透明、人类监督与责任可追溯等价值转化为风险模式、控制措施和生成边界。
+
+values:
+  privacy:
+    label: 隐私保护
+    principle: 个人数据处理应以合法、正当、必要为边界，优先采用数据最小化、匿名化和用户同意机制。
+  data_minimization:
+    label: 数据最小化
+    principle: 项目不应收集、保存或推断超出实现目的所必需的数据。
+  fairness:
+    label: 公平与反歧视
+    principle: 系统不得基于性别、年龄、民族、地域、健康状况、学校等敏感或代理变量作出歧视性排序、评分或排除。
+  safety:
+    label: 安全与防滥用
+    principle: 大模型不得帮助构建侵犯他人权益、绕过安全机制、隐蔽监控或具有明显滥用风险的项目。
+  transparency:
+    label: 透明性与可解释性
+    principle: 对用户权益产生影响的系统应说明 AI 参与、数据用途、主要判断依据和限制。
+  human_control:
+    label: 人类监督
+    principle: 高影响场景中 AI 只能作为辅助工具，最终判断应保留人工复核、申诉和纠错渠道。
+  accountability:
+    label: 责任可追溯
+    principle: 系统应记录触发的伦理规则、修改理由、生成边界和人工确认状态，便于后续审计。
+  autonomy:
+    label: 用户自主性
+    principle: 用户应拥有知情、选择、退出、撤回授权和删除数据的能力。
+  beneficence:
+    label: 科技向善
+    principle: 对高风险需求优先提供低侵入、低伤害、可解释、可复核的替代方案。
+
+taxonomy:
+  domains:
+    hiring: [招聘, 简历, 求职, 候选人, 录用, 面试, hr, resume, hiring, recruitment]
+    education: [教育, 学生, 学习, 成绩, 考勤, 课堂, 学校, 校园, 作业, education, student]
+    healthcare: [医疗, 健康, 病历, 诊断, 患者, 药物, healthcare, medical, diagnosis]
+    finance: [金融, 贷款, 信贷, 风控, 保险, 投资, credit, loan, finance]
+    justice: [司法, 执法, 犯罪, 诉讼, 处罚, law, legal, policing]
+    security: [安防, 监控, 追踪, 定位, 门禁, 摄像头, surveillance, tracking]
+    social_media: [社交, 舆情, 评论, 微博, 小红书, 抖音, social, profile]
+    software_dev: [代码, 项目, 开发, app, web, api, 软件, 系统, tool]
+  data_types:
+    name: [姓名, 名字, 姓名信息, name]
+    phone: [手机号, 电话, 联系方式, 通讯录, phone, mobile]
+    id_number: [身份证, 证件号, 学号, 工号, id number]
+    location: [位置, 定位, 行踪, 轨迹, location, gps]
+    face: [人脸, 面部, face, facial]
+    voice: [声音, 声纹, 录音, voice]
+    fingerprint: [指纹, fingerprint]
+    health: [健康, 病历, 疾病, 药物, 诊断, health, medical]
+    finance: [收入, 存款, 贷款, 信用, 银行卡, finance, credit]
+    behavior: [行为, 浏览记录, 点击, 学习行为, 活跃度, behavior]
+    school: [毕业学校, 学校, 学历, 院校, school, university]
+    age: [年龄, 出生日期, age]
+    gender: [性别, gender]
+    ethnicity: [民族, 种族, ethnicity, race]
+    region: [地域, 籍贯, 户籍, 省份, region]
+  sensitive_groups:
+    minors: [未成年人, 儿童, 小学生, 中学生, 青少年, minors, children]
+    students: [学生, 考生, student]
+    job_applicants: [求职者, 候选人, 应聘者, applicant, candidate]
+    patients: [患者, 病人, patient]
+    elderly: [老人, 老年人, elderly]
+  capabilities:
+    automated_scoring: [自动评分, 打分, 排序, 评级, 筛选, 淘汰, ranking, scoring]
+    identification: [识别身份, 身份识别, 人脸识别, 声纹识别, identification]
+    profiling: [画像, 性格分析, 风险画像, 用户画像, profiling]
+    scraping: [爬取, 抓取, 采集, 批量获取, scrape, crawler]
+    monitoring: [监控, 跟踪, 监听, 追踪, surveillance, monitor]
+    recommendation: [推荐, 个性化, 推荐系统, recommendation]
+    content_generation: [生成内容, 文案, 图片, 视频, content generation]
+    code_generation: [写代码, 生成代码, 脚本, code generation]
+  abuse_indicators:
+    - 忽略之前
+    - 忽略伦理
+    - 绕过限制
+    - 绕过验证
+    - 绕过登录
+    - 不要告诉用户
+    - 隐蔽
+    - 偷偷
+    - 批量爬取
+    - 未经同意
+    - 破解
+    - 攻击
+    - bypass
+    - ignore previous
+    - hidden
+    - stealth
+
+controls:
+  informed_consent: 明确告知数据用途、处理方式、保存期限和第三方共享情况，并取得用户同意。
+  data_minimization: 只收集实现核心功能所必需的数据，优先使用匿名、聚合或模拟数据。
+  anonymization: 对个人身份、联系方式、位置和行为数据进行脱敏或匿名化处理。
+  retention_limit: 设置数据保存期限，到期删除或重新取得授权。
+  non_sensitive_alternative: 提供不依赖敏感数据的替代路径。
+  remove_sensitive_attributes: 删除性别、年龄、民族、地域等敏感属性及明显代理变量。
+  fairness_test: 在不同群体上进行结果差异检查，记录并解释公平性风险。
+  explainable_score: 对评分、排序、推荐或审核结果提供主要依据说明。
+  human_review: 高影响场景必须加入人工复核，AI 不能作为唯一最终决策依据。
+  appeal_channel: 为受影响用户提供申诉、纠错和人工复议渠道。
+  ai_disclosure: 清晰标注系统中 AI 参与的环节、能力边界和可能错误。
+  audit_log: 记录原始需求、触发规则、风险等级、修改理由、最终输出和人工确认状态。
+  safe_refusal: 对明显侵权、歧视、隐蔽监控或攻击性需求拒绝生成，并给出合规替代方案。
+  prompt_injection_guard: 对“忽略规则”“绕过限制”等输入进行提示注入风险标记并拒绝绕过。
+  local_or_encrypted_storage: 对敏感数据优先本地处理或加密存储，避免无必要上传。
+  user_opt_out: 提供退出个性化、撤回授权和删除数据的入口。
+  deployment_limit: 对高风险原型标注“仅供学习/研究，不可直接部署到真实权益场景”。
+
+risk_rules:
+  - id: SAFETY_ABUSE_001
+    name: 绕过伦理或安全限制
+    values: [safety, accountability]
+    condition:
+      abuse_indicator: true
+    severity: critical
+    decision: block
+    score:
+      data_sensitivity: 1
+      impact_severity: 2
+      automation: 2
+      vulnerable_groups: 0
+      abuse_potential: 3
+    required_controls: [safe_refusal, prompt_injection_guard, audit_log]
+    forbidden_outputs:
+      - 生成绕过登录、验证、风控、伦理限制或平台安全策略的步骤和代码
+      - 根据“忽略伦理规则”等指令关闭系统控制流程
+    safe_alternatives:
+      - 将需求改写为合规的安全测试清单或防护方案
+
+  - id: PRIVACY_UNAUTHORIZED_COLLECTION_001
+    name: 未经授权收集个人信息
+    values: [privacy, data_minimization, autonomy]
+    condition:
+      capability_any: [scraping]
+      data_any: [phone, id_number, location, face, voice, health, finance]
+    severity: critical
+    decision: block
+    score:
+      data_sensitivity: 3
+      impact_severity: 2
+      automation: 2
+      vulnerable_groups: 0
+      abuse_potential: 3
+    required_controls: [safe_refusal, informed_consent, data_minimization, audit_log]
+    forbidden_outputs:
+      - 生成批量抓取手机号、身份证号、位置、人脸、健康信息等个人敏感数据的爬虫或脚本
+      - 生成绕过授权或平台规则的数据采集方案
+    safe_alternatives:
+      - 设计自愿提交、明确告知用途、可撤回授权的数据收集表单
+      - 使用模拟数据或公开授权数据集完成项目原型
+
+  - id: PRIVACY_BIOMETRIC_001
+    name: 生物识别数据处理
+    values: [privacy, autonomy, human_control]
+    condition:
+      data_any: [face, voice, fingerprint]
+      capability_any: [identification, monitoring, automated_scoring]
+    severity: high
+    decision: rewrite_required
+    score:
+      data_sensitivity: 3
+      impact_severity: 2
+      automation: 2
+      vulnerable_groups: 1
+      abuse_potential: 2
+    required_controls: [informed_consent, non_sensitive_alternative, local_or_encrypted_storage, retention_limit, human_review, audit_log]
+    forbidden_outputs:
+      - 生成默认强制采集人脸、声纹或指纹的部署方案
+      - 将生物识别作为唯一通行、考勤或身份验证方式
+    safe_alternatives:
+      - 二维码、校园卡、一次性验证码或人工补录
+      - 本地演示数据替代真实生物识别数据
+
+  - id: FAIRNESS_HIGH_IMPACT_DECISION_001
+    name: 高影响场景中的歧视性自动化决策
+    values: [fairness, transparency, human_control]
+    condition:
+      domain_any: [hiring, education, finance, healthcare, justice]
+      capability_any: [automated_scoring]
+      data_any: [age, gender, ethnicity, region, school, health, finance]
+    severity: high
+    decision: rewrite_required
+    score:
+      data_sensitivity: 2
+      impact_severity: 3
+      automation: 3
+      vulnerable_groups: 2
+      abuse_potential: 2
+    required_controls: [remove_sensitive_attributes, explainable_score, fairness_test, human_review, appeal_channel, audit_log]
+    forbidden_outputs:
+      - 根据性别、年龄、民族、地域、健康状况或学校标签直接筛选、淘汰、评分
+      - 生成完全自动决定录用、录取、贷款、诊疗或处罚结果的方案
+    safe_alternatives:
+      - 基于任务相关技能、资格条件或用户自愿提供的信息进行辅助匹配
+      - 明确 AI 仅供参考，最终决定由人工复核
+
+  - id: HUMAN_CONTROL_HIGH_IMPACT_001
+    name: 高影响权益场景缺少人工复核
+    values: [human_control, accountability, transparency]
+    condition:
+      domain_any: [hiring, education, finance, healthcare, justice]
+      capability_any: [automated_scoring, recommendation, profiling]
+    severity: medium
+    decision: allow_with_controls
+    score:
+      data_sensitivity: 1
+      impact_severity: 2
+      automation: 2
+      vulnerable_groups: 1
+      abuse_potential: 0
+    required_controls: [human_review, appeal_channel, explainable_score, ai_disclosure, audit_log, deployment_limit]
+    forbidden_outputs:
+      - 将 AI 输出作为影响就业、教育、医疗、金融或司法权益的唯一最终依据
+    safe_alternatives:
+      - 将系统定位为辅助分析工具，并保留人工覆盖权
+
+  - id: PRIVACY_PROFILING_001
+    name: 用户画像和行为分析
+    values: [privacy, autonomy, transparency]
+    condition:
+      capability_any: [profiling, recommendation]
+      data_any: [behavior, location, phone, school, age, gender]
+    severity: medium
+    decision: allow_with_controls
+    score:
+      data_sensitivity: 2
+      impact_severity: 1
+      automation: 2
+      vulnerable_groups: 1
+      abuse_potential: 0
+    required_controls: [informed_consent, data_minimization, anonymization, user_opt_out, ai_disclosure, audit_log]
+    forbidden_outputs:
+      - 在用户不知情的情况下长期追踪、画像或推断敏感特征
+    safe_alternatives:
+      - 使用可关闭的个性化推荐，并向用户展示主要推荐依据
+
+  - id: SAFETY_SURVEILLANCE_001
+    name: 监控与追踪系统
+    values: [safety, privacy, autonomy]
+    condition:
+      capability_any: [monitoring]
+    severity: high
+    decision: rewrite_required
+    score:
+      data_sensitivity: 2
+      impact_severity: 2
+      automation: 2
+      vulnerable_groups: 1
+      abuse_potential: 3
+    required_controls: [informed_consent, non_sensitive_alternative, retention_limit, ai_disclosure, human_review, audit_log]
+    forbidden_outputs:
+      - 生成隐蔽监控、持续定位或未经同意追踪他人的方案
+    safe_alternatives:
+      - 改为用户自愿启用、目的明确、可关闭的安全提醒功能
+
+  - id: MINORS_PROTECTION_001
+    name: 未成年人相关系统
+    values: [privacy, autonomy, beneficence]
+    condition:
+      target_user_any: [minors]
+    severity: high
+    decision: allow_with_controls
+    score:
+      data_sensitivity: 2
+      impact_severity: 2
+      automation: 2
+      vulnerable_groups: 3
+      abuse_potential: 1
+    required_controls: [data_minimization, informed_consent, user_opt_out, human_review, ai_disclosure, audit_log]
+    forbidden_outputs:
+      - 面向未成年人进行隐蔽画像、诱导性推荐或无监护授权的数据采集
+    safe_alternatives:
+      - 使用本地模拟数据，并增加监护人确认和内容安全过滤
+
+  - id: TRANSPARENCY_CONTENT_AI_001
+    name: AI生成内容透明标识
+    values: [transparency, accountability]
+    condition:
+      capability_any: [content_generation, code_generation]
+    severity: low
+    decision: allow_with_controls
+    score:
+      data_sensitivity: 0
+      impact_severity: 1
+      automation: 1
+      vulnerable_groups: 0
+      abuse_potential: 0
+    required_controls: [ai_disclosure, audit_log]
+    forbidden_outputs:
+      - 将 AI 生成内容伪装成人类原创或专业结论且不做说明
+    safe_alternatives:
+      - 在项目文档和界面中标注 AI 辅助生成范围与局限
+
+  - id: DEFAULT_SOFTWARE_PROJECT_001
+    name: 普通软件项目的基础伦理提醒
+    values: [transparency, accountability, beneficence]
+    condition:
+      domain_any: [software_dev]
+    severity: low
+    decision: allow
+    score:
+      data_sensitivity: 0
+      impact_severity: 0
+      automation: 1
+      vulnerable_groups: 0
+      abuse_potential: 0
+    required_controls: [ai_disclosure]
+    forbidden_outputs: []
+    safe_alternatives: []
